@@ -1,14 +1,11 @@
 import express from "express";
 
-import healthRoutes from "./routes/health.routes.js";
+import routes from "./routes/index.js";
 
 const app = express();
 
-// Middleware para JSON.
-// Más adelante añadiremos el middleware para PDF.
 app.use(express.json());
 
-// Health Check
-app.use("/api/v1/health", healthRoutes);
+app.use("/api/v1", routes);
 
 export default app;
