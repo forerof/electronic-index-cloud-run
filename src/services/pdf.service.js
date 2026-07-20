@@ -11,6 +11,10 @@ export async function getPdfInfo(buffer) {
     return {
       pages: result.total,
     };
+  } catch (error) {
+    error.status = 400;
+    error.message = "The file is not a valid PDF.";
+    throw error;
   } finally {
     await parser.destroy();
   }

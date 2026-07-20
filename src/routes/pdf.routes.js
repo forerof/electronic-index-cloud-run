@@ -5,7 +5,7 @@ import { getPdfInfo } from "../services/pdf.service.js";
 
 const router = Router();
 
-router.post("/info", validateApiKey, async (req, res) => {
+router.post("/info", validateApiKey, async (req, res, next) => {
   try {
     const pdfInfo = await getPdfInfo(req.body);
 
@@ -14,15 +14,7 @@ router.post("/info", validateApiKey, async (req, res) => {
       data: pdfInfo,
     });
   } catch (error) {
-    console.error(error);
-
-    res.status(400).json({
-      success: false,
-      error: {
-        code: "INVALID_PDF",
-        message: "The file is not a valid PDF.",
-      },
-    });
+    next(error);
   }
 });
 
