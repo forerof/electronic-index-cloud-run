@@ -1,10 +1,11 @@
 import { Router } from "express";
 
+import { validateApiKey } from "../middleware/api-key.middleware.js";
 import { getPdfInfo } from "../services/pdf.service.js";
 
 const router = Router();
 
-router.post("/info", async (req, res) => {
+router.post("/info", validateApiKey, async (req, res) => {
   try {
     const pdfInfo = await getPdfInfo(req.body);
 
