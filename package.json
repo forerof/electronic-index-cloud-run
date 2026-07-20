@@ -1,0 +1,25 @@
+{
+  "name": "electronic-index-cloud-run",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1",
+    "pdf-parse": "^2.4.5"
+  },
+  "devDependencies": {
+    "eslint": "^10.7.0",
+    "nodemon": "^3.1.14",
+    "prettier": "^3.9.5"
+  }
+}
